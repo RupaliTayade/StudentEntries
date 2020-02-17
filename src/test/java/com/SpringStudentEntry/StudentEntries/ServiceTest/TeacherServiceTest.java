@@ -60,6 +60,7 @@ public class TeacherServiceTest {
     @Test
     public void testTeacherById() {
 
+
         Teacher teacherEntityToReturnFromFindById = new Teacher(1L, "John", "Smith", new byte[1]);
         TeacherDto teacherDtoToReturnFromMapper = new TeacherDto(1L, "John", "Smith", "byte");
         when(teacherRepository.findById(1L)).thenReturn(Optional.of(teacherEntityToReturnFromFindById));

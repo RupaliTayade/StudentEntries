@@ -87,7 +87,7 @@ public class TeacherControllerTest {
 
     @Test
     public void testDeleteTeacher() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.delete("/teachers/delete/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/teachers/delete/1"))
                 .andDo(print())
                 .andExpect(status().isOk());
 

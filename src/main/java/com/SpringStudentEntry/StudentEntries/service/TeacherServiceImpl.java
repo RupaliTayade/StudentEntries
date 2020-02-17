@@ -41,7 +41,6 @@ public class TeacherServiceImpl implements TeacherService {
         if (image.getOriginalFilename() != null)
             teacherDto.setImg(java.util.Base64.getEncoder().encodeToString(image.getBytes()));
         teacherRepository.save(teacherMapper.dtoToTeacher(teacherDto));
-
         return teacherDto;
     }
 

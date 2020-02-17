@@ -6,12 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class StudentEntriesApplicationTests {
 
-	//	@Test
-//	void contextLoads() {
-//	}
-	@Test
-	public void main() {
-		StudentEntriesApplication.main(new String[]{});
+		@Test
+	void contextLoads() {
 	}
+//	@Test
+//	public void main() {
+//		StudentEntriesApplication.main(new String[]{});
+//	}
 
 }

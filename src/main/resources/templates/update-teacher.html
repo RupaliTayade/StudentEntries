@@ -18,13 +18,14 @@
     <h3> Update Teacher</h3>
     <div class="card">
         <div class="card-body">
-
-            <div class="col-md-8">
+            <div th:if="${teacher.img}" ><img  border="1%" align="right" width="15%", height="25%" th:src="@{'data:image/jpeg;base64,'+${teacher.img}}"/>
+            </div>
+                <div class="col-md-8">
                 <form action="#"
                       th:action="@{/teachers/update/{id}(id=${teacher.id})}"
                       th:object="${teacher}" method="post"enctype="multipart/form-data">
                     <div class="row">
-                    <div th:if="${teacher.img}" ><img align="right" width="15%" height="30%"  th:src="@{'data:imgae/jpeg;base64,'+${teacher.img}}"/>
+
                         <div class="form-group col-md-6">
                             <label for="name" class="col-form-label">Name</label> <input
                                 type="text" th:field="*{name}" class="form-control" id="name"
@@ -41,7 +42,7 @@
 
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="image" class="col-form-label">Image</label> <input
+                                <label for="image" class="col-form-label"></label> <input
                                     type="file" class="form-control"
                                     id="image" name="image" placeholder="img">
                             </div>

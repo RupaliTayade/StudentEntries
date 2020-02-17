@@ -25,7 +25,7 @@
                     <a href="/students/list" class="btn btn-primary"><i
                             class="fas">Student List</i></a>
                 </p>
-                <a href="/students/signup" class="btn btn-primary"><i
+                <a href="/teachers/signup" class="btn btn-primary"><i
                         class="fas fa-user-plus ml-2"> Add Teacher</i></a>
                 </p>
                 <div class="col-md-10">
@@ -41,7 +41,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="teacher : ${teachers}">
+                            <tr th:each="teacher:${teachers}">
                                 <td th:text="${teacher.name}"></td>
                                 <td th:text="${teacher.surname}"></td>
                                 <td><a th:href="@{/teachers/edit/{id}(id=${teacher.id})}"

@@ -102,7 +102,7 @@ public class StudentControllerTest {
 
     @Test
     public void testDeleteStudent() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.delete("/students/delete/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/students/delete/1"))
                 .andDo(print())
                 .andExpect(status().isOk());
 

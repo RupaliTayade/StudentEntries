@@ -33,10 +33,6 @@ public class TeacherController {
 
     @PostMapping("add")
     public String addTeacher(@Valid TeacherDto teacher, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-teacher";
-        }
-
         teacherService.create(teacher);
         return "redirect:list";
     }
@@ -56,7 +52,7 @@ public class TeacherController {
         return "index2";
     }
 
-    @DeleteMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public String deleteTeacher(@PathVariable("id") String id, Model model) {
         teacherService.delete(id);
         model.addAttribute("teachers", teacherService.findAll());

@@ -35,10 +35,6 @@ public class StudentController {
 
     @PostMapping("add")
     public String addStudent(StudentDto student, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-student";
-        }
-
         studentService.create(student);
         return "redirect:list";
     }
@@ -61,7 +57,7 @@ public class StudentController {
         return "index";
     }
 
-    @DeleteMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public String deleteStudent(@PathVariable("id") String id, Model model) {
         studentService.delete(id);
         model.addAttribute("students", studentService.findAll());
