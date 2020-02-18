@@ -18,6 +18,13 @@ public class Teacher {
     @Column(columnDefinition = "LONGBLOB")
     private byte[] image;
 
+    public Teacher(Builder builder) {
+           this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.image = image;
+    }
+
     public Teacher() {
     }
 
@@ -58,5 +65,35 @@ public class Teacher {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public static class Builder {
+        private long id;
+        private String name;
+        private String surname;
+        private byte[] image;
+
+        public Builder  id(long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder  name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder  image(byte[] image) {
+            this.image = image;
+            return this;
+        }
+
+        public Builder surname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+        public Teacher build() {
+            return new Teacher(this);
+        }
     }
 }

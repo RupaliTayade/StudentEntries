@@ -16,11 +16,12 @@ public class StudentMapper {
     TeacherMapper teacherMapper;
 
     public Student dtoToStudent(StudentDto studentDto) {
-        Student student = new Student();
+        Student student = new Student.Builder()
+                .name(studentDto.getName()).email(studentDto.getEmail()).phoneNo(studentDto.getPhoneNo())
+                .build();
+
         if (studentDto.getId() != null) student.setId(studentDto.getId());
-        student.setName(studentDto.getName());
-        student.setEmail(studentDto.getEmail());
-        student.setPhoneNo(studentDto.getPhoneNo());
+
         if (studentDto.getImg() != null) student.setImage(Base64.getDecoder().decode(studentDto.getImg()));
         if (studentDto.getTeacherDto() != null) student.setTeacher(teacherMapper.dtoToTeacher(studentDto.getTeacherDto()));
         return student;
