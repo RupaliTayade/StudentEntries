@@ -5,8 +5,13 @@ import com.SpringStudentEntry.StudentEntries.entity.Teacher;
 import com.SpringStudentEntry.StudentEntries.mapper.TeacherMapper;
 import com.SpringStudentEntry.StudentEntries.repository.TeacherRepository;
 import com.SpringStudentEntry.StudentEntries.service.TeacherService;
+import com.SpringStudentEntry.StudentEntries.service.TeacherServiceImpl;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,14 +28,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class TeacherServiceTest {
-    @Autowired
-    private TeacherService teacherService;
-    @MockBean
+    @InjectMocks
+    private TeacherServiceImpl teacherService;
+    @Mock
     private TeacherRepository teacherRepository;
-    @MockBean
+    @Mock
     private TeacherMapper teacherMapper;
 
     @Test

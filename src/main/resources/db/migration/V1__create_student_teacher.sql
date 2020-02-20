@@ -1,0 +1,20 @@
+--
+--CREATE TABLE IF NOT EXISTS Teacher(
+--    id NUMERIC NOT NULL PRIMARY KEY,
+--    name VARCHAR(255) NOT NULL,
+--    surname VARCHAR(255) NOT NULL,
+--     image BLOB
+--
+--);
+--
+--CREATE TABLE IF NOT EXISTS Student(
+--    id NUMERIC NOT NULL PRIMARY KEY,
+--    name VARCHAR(255) NOT NULL,
+--    email VARCHAR(255) NOT NULL,
+--    phoneNo LONG NOT NULL,
+--    image BLOB ,
+--    teacher_id NUMERIC,
+--   CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES Teacher(id)
+--);
+--
+--

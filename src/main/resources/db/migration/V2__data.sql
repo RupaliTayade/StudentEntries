@@ -1,0 +1,10 @@
+----
+----
+--
+--insert into  TEACHER (ID, NAME, SURNAME, IMAGE) values (1, 'Brittany', 'Bilney', null);
+--insert into TEACHER (ID, NAME, SURNAME, IMAGE) values (2, 'Rois', 'Showt', null);
+--insert into TEACHER (ID, NAME, SURNAME, IMAGE) values (3, 'Silvanus', 'Redier', null);
+--
+--insert into  STUDENT (ID, NAME, EMAIL, PHONENO, IMAGE, TEACHER_ID) values (1, 'Brittany', 'Bilney', '232222',null,1);
+--insert into STUDENT (ID, NAME, EMAIL, PHONENO, IMAGE, TEACHER_ID) values (2, 'Rois', 'Showt', '201333',null,2);
+--insert into STUDENT (ID, NAME, EMAIL, PHONENO, IMAGE,TEACHER_ID) values (3, 'Silvanus', 'Redier', '2016433',null,3);

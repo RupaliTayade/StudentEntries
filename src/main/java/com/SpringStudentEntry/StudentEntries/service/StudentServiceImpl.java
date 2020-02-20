@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
         studentDto.setId(Long.valueOf(id));
         if (!teacherId.isEmpty()) {
 
-            Teacher teacher = teacherRepository.findById(Long.valueOf(teacherId)).orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
+            Teacher teacher = teacherRepository.findById(Long.valueOf(teacherId)).orElseThrow(() -> new IllegalArgumentException("Invalid teacher Id:" + id));
             studentDto.setTeacherDto(teacherMapper.teacherToDto(teacher));
         }
         if (image.getOriginalFilename() != null)
