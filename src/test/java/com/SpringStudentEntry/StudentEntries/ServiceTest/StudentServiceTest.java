@@ -60,16 +60,6 @@ public class StudentServiceTest {
         Teacher teacher = new Teacher();
         TeacherDto teacher1 = new TeacherDto();
         Student studentEntityToReturnFromFindById = new Student(1L, "John", "john@gmail.com", 2L, new byte[1], teacher);
-//        StudentDto studentDtoToReturnFromMapper = new StudentDto(1L, "John", "john@gmail.com", 2L, teacher1, "byte");
-//        when(studentRepository.findById(1L)).thenReturn(Optional.of(studentEntityToReturnFromFindById));
-//        when(studentMapper.studentToDto(Optional.of(studentEntityToReturnFromFindById).get())).thenReturn(studentDtoToReturnFromMapper);
-//
-//        StudentDto returnedStudentDtoFromService = studentService.findById("1");
-//
-//        assertNotNull(returnedStudentDtoFromService);
-//        verify(studentRepository, times(1)).findById(1L);
-//        assertEquals(studentDtoToReturnFromMapper, returnedStudentDtoFromService);
-
 
         when(studentRepository.findById(any())).thenReturn(Optional.of(studentEntityToReturnFromFindById));
         studentService.findById("1");
@@ -98,25 +88,11 @@ public class StudentServiceTest {
         Teacher teacher = new Teacher( 1L,"johi", "smith", null );
       TeacherDto teacher1 = new TeacherDto();
       StudentDto studentDtoToUpdate = new StudentDto(1L, "John", "john@gmail.com", 2L, teacher1, null);
-        Student fromRepository = new Student(1L, "John", "john@gmail.com", 2L, null, teacher);
-//        Student studentToReturnFromMapper = new Student(1L, "John", "john@gmail.com", 2L, new byte[1], teacher);
-//        Student studentToReturnFromSave = new Student(1L, "John", "john@gmail.com", 2L, new byte[1], teacher);
-//
-//        when(studentRepository.findById(any())).thenReturn(Optional.of(FromRepository));
-//        when(studentMapper.dtoToStudent(any())).thenReturn(studentToReturnFromMapper);
-//        when(studentRepository.save(any())).thenReturn(studentToReturnFromSave);
-     MultipartFile image = new MockMultipartFile("name", (byte[]) any());
-//
-//    StudentDto resultDtoFromUpdate = studentService.update("1", null, studentDtoToUpdate, image);
-//
-//        verify(studentRepository, times(1)).save(studentToReturnFromMapper);
-//        assertNotNull(resultDtoFromUpdate);
-//        assertEquals(studentDtoToUpdate, resultDtoFromUpdate);
-
-        when(studentRepository.findById(any())).thenReturn(Optional.of(fromRepository));
         when(teacherRepository.findById(any())).thenReturn(Optional.of(teacher));
-        studentService.update("1", "1", studentDtoToUpdate, eq(image));
-        verify(studentRepository, atLeastOnce()).save(fromRepository);
+          MultipartFile image = new MockMultipartFile("name", (byte[]) any());
+
+        assertNotNull(studentService.update("1", "1", studentDtoToUpdate, image));
+
     }
 
     @Test
