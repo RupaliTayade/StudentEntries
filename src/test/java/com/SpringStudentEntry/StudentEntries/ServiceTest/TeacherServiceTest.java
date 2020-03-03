@@ -98,9 +98,7 @@ public class TeacherServiceTest {
 
         TeacherDto resultDtoFromUpdate = teacherService.update("1", teacherDtoToUpdate, image);
 
-//        verify(teacherRepository).save(any(Teacher.class));
         assertNotNull(resultDtoFromUpdate);
-//        assertEquals(teacherDtoToUpdate, resultDtoFromUpdate);
     }
 
     @Test
