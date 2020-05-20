@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class TeacherMapper {
     public Teacher dtoToTeacher(TeacherDto teacherDto) {
-        Teacher teacher = new Teacher.Builder().name(teacherDto.getName()).surname(teacherDto.getSurname()).build();
+        Teacher teacher = Teacher.builder().name(teacherDto.getName()).surname(teacherDto.getSurname()).build();
         if (teacherDto.getId() != null) teacher.setId(teacherDto.getId());
         if (teacherDto.getImg() != null) teacher.setImage(Base64.getDecoder().decode(teacherDto.getImg()));
         return teacher;

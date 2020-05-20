@@ -16,7 +16,7 @@ public class StudentMapper {
     TeacherMapper teacherMapper;
 
     public Student dtoToStudent(StudentDto studentDto) {
-        Student student = new Student.Builder()
+        Student student = Student.builder()
                 .name(studentDto.getName()).email(studentDto.getEmail()).phoneNo(studentDto.getPhoneNo())
                 .build();
 

@@ -1,6 +1,13 @@
 package com.SpringStudentEntry.StudentEntries.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Arrays;
 
 @Entity
@@ -19,7 +26,9 @@ public class Student {
     @Column(name = "phone_no")
     private long phoneNo;
 
-
+    public static StudentBuilder builder() {
+        return new StudentBuilder();
+    }
 
     public byte[] getImage() {
         return image;
@@ -87,7 +96,7 @@ public class Student {
         this.teacher = teacher;
     }
 
-    public static class Builder {
+    public static class StudentBuilder {
         private long id;
         private String name;
         private String email;
@@ -95,57 +104,45 @@ public class Student {
         private byte[] image;
         private Teacher teacher;
 
-        public Builder id(long id) {
+        StudentBuilder() {
+        }
+
+        public StudentBuilder id(long id) {
             this.id = id;
             return this;
         }
 
-        public Builder name(String name) {
+        public StudentBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder email(String email) {
+        public StudentBuilder email(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder phoneNo(long phoneNo) {
+        public StudentBuilder phoneNo(long phoneNo) {
             this.phoneNo = phoneNo;
             return this;
         }
 
-        public Builder image(byte[] image) {
+        public StudentBuilder image(byte[] image) {
             this.image = image;
             return this;
         }
 
-        public Builder teacher(Teacher teacher) {
+        public StudentBuilder teacher(Teacher teacher) {
             this.teacher = teacher;
             return this;
         }
-        public Student build() {
-            return new Student(this);
-        }
-    }
-    public Student(Builder builder) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phoneNo = phoneNo;
-        this.image = image;
-        this.teacher = teacher;
-    }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNo=" + phoneNo +
-                ", image=" + Arrays.toString(image) +
-                ", teacher=" + teacher +
-                '}';
+        public Student build() {
+            return new Student(id, name, email, phoneNo, image, teacher);
+        }
+
+        public String toString() {
+            return "Student.StudentBuilder(id=" + this.id + ", name=" + this.name + ", email=" + this.email + ", phoneNo=" + this.phoneNo + ", image=" + Arrays.toString(this.image) + ", teacher=" + this.teacher + ")";
+        }
     }
 }

@@ -1,6 +1,11 @@
 package com.SpringStudentEntry.StudentEntries.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "teacher")
@@ -18,12 +23,7 @@ public class Teacher {
     @Column(columnDefinition = "LONGBLOB")
     private byte[] image;
 
-    public Teacher(Builder builder) {
-           this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.image = image;
-    }
+
 
     public Teacher() {
     }
@@ -33,6 +33,10 @@ public class Teacher {
         this.name = name;
         this.surname = surname;
         this.image = image;
+    }
+
+    public static TeacherBuilder builder() {
+        return new TeacherBuilder();
     }
 
     public long getId() {
@@ -67,33 +71,41 @@ public class Teacher {
         this.image = image;
     }
 
-    public static class Builder {
+    public static class TeacherBuilder {
         private long id;
         private String name;
         private String surname;
         private byte[] image;
 
-        public Builder  id(long id) {
+        TeacherBuilder() {
+        }
+
+        public TeacherBuilder id(long id) {
             this.id = id;
             return this;
         }
 
-        public Builder  name(String name) {
+        public TeacherBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder  image(byte[] image) {
+        public TeacherBuilder surname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public TeacherBuilder image(byte[] image) {
             this.image = image;
             return this;
         }
 
-        public Builder surname(String surname) {
-            this.surname = surname;
-            return this;
-        }
         public Teacher build() {
-            return new Teacher(this);
+            return new Teacher(id, name, surname, image);
+        }
+
+        public String toString() {
+            return "Teacher.TeacherBuilder(id=" + this.id + ", name=" + this.name + ", surname=" + this.surname + ", image=" + java.util.Arrays.toString(this.image) + ")";
         }
     }
 }
